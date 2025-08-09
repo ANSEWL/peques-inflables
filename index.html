@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Peques Inflables y Juegos | Alquiler de inflables y recreación infantil</title>
+  <meta name="description" content="Alquiler de inflables, plazas blandas, camas elásticas y más. Diversión segura, limpieza certificada y atención personalizada. Cotización express por WhatsApp." />
+  <meta name="keywords" content="alquiler de inflables, plazas blandas, camas elásticas, pelotero, fiesta infantil, animación, cumpleaños, [Ciudad]" />
+  <meta name="theme-color" content="#21a2ff" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Peques Inflables y Juegos" />
+  <meta property="og:description" content="Diversión segura para los más peques. Inflables, plazas blandas, camas elásticas y más." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://tudominio.com/" />
+  <meta property="og:image" content="https://tudominio.com/og-cover.jpg" />
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <style>
+    :root {
+      --primary: #21a2ff;      /* Celeste vibrante */
+      --primary-600: #0f8ae0;
+      --secondary: #ff3ea5;    /* Rosa intenso */
+      --accent: #ffd53e;       /* Amarillo alegre */
+      --mint: #22e3b8;         /* Menta */
+      --bg: #f8fbff;           /* Fondo muy claro */
+      --ink: #0f172a;          /* Texto principal (azul gris) */
+      --muted: #475569;        /* Texto secundario */
+      --card: #ffffff;         /* Tarjetas */
+      --ring: rgba(33,162,255,.25);
+      --radius: 18px;
+      --shadow: 0 10px 30px rgba(2, 12, 27, .08);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
+      color: var(--ink); background: var(--bg);
+    }
+
+    /* Accesibilidad */
+    .skip-link { position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden; }
+    .skip-link:focus { left: 16px; top: 16px; width:auto; height:auto; background:#fff; padding:8px 12px; border-radius:10px; box-shadow:var(--shadow); }
+
+    /* Header */
+    header {
+      position: sticky; top: 0; z-index: 50; backdrop-filter: saturate(180%) blur(10px);
+      background: rgba(255,255,255,.8); border-bottom: 1px solid rgba(2,12,27,.06);
+    }
+    .nav {
+      max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      padding: 12px 16px;
+    }
+    .brand {
+      display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink);
+    }
+    .brand-logo {
+      width: 42px; height: 42px; border-radius: 12px; background: linear-gradient(135deg, var(--primary), var(--secondary)); box-shadow: var(--shadow);
+      display:grid; place-items:center; color:white; font-weight:800;
+    }
+    .brand b { font-size: 1.05rem; letter-spacing:.2px; }
+
+    .menu { display: flex; gap: 16px; align-items:center; }
+    .menu a { text-decoration: none; color: var(--muted); font-weight: 600; padding: 8px 10px; border-radius: 10px; }
+    .menu a:hover { color: var(--ink); background: rgba(33,162,255,.08); }
+
+    .cta { background: var(--primary); color: white; border: none; border-radius: 14px; padding: 10px 16px; font-weight: 700; cursor: pointer; box-shadow: 0 6px 20px rgba(33,162,255,.35); }
+    .cta:hover { background: var(--primary-600); }
+
+    .hamb { display:none; background:transparent; border:none; font-size:28px; cursor:pointer; }
+
+    /* Hero */
+    .hero {
+      position: relative; overflow: clip;
+      background: linear-gradient(160deg, #e8f5ff 0%, #fff7fd 50%, #f9ffef 100%);
+      padding: 64px 16px 24px;
+    }
+    .hero-wrap { max-width: 1200px; margin: 0 auto; display:grid; grid-template-columns: 1.15fr 1fr; gap: 24px; align-items: center; }
+    .headline { font-size: clamp(28px, 4.5vw, 52px); line-height:1.05; margin: 0 0 10px; }
+    .subhead { color: var(--muted); font-size: clamp(16px, 2vw, 18px); margin: 0 0 18px; }
+    .badge { display:inline-flex; gap:8px; align-items:center; background:#fff; border:1px solid rgba(2,12,27,.06); border-radius: 999px; padding: 8px 12px; box-shadow: var(--shadow); margin-bottom: 14px; font-weight:700; }
+    .badge i { width:10px; height:10px; border-radius:999px; background: conic-gradient(from 0deg, var(--primary), var(--secondary), var(--accent), var(--mint)); display:inline-block; }
+
+    .hero-cta { display:flex; flex-wrap:wrap; gap: 10px; align-items:center; }
+    .btn { display:inline-flex; align-items:center; gap:10px; padding:12px 16px; border-radius: 14px; border:1px solid rgba(2,12,27,.08); background:#fff; color:var(--ink); font-weight:800; cursor:pointer; text-decoration:none; }
+    .btn.primary { background: var(--primary); color:white; border-color: transparent; box-shadow: 0 10px 26px rgba(33,162,255,.35); }
+    .btn.primary:hover { background: var(--primary-600); }
+    .btn.outline:hover { border-color: var(--primary); color: var(--primary-600); }
+
+    .stats { display:flex; gap: 18px; flex-wrap:wrap; margin-top: 16px; }
+    .stat { background:#fff; border:1px solid rgba(2,12,27,.06); border-radius: 14px; padding: 10px 14px; box-shadow: var(--shadow); min-width: 140px; }
+    .stat b { font-size: 1.1rem; }
+
+    .hero-ill {
+      position: relative; aspect-ratio: 4/3; border-radius: 22px; overflow:hidden; background: linear-gradient(135deg, rgba(33,162,255,.12), rgba(255,62,165,.1), rgba(255,213,62,.12)); border:1px dashed rgba(2,12,27,.08);
+      display:grid; place-items:center; text-align:center; padding: 22px; color: var(--muted);
+    }
+    .hero-ill small { opacity:.9; }
+
+    /* Sections */
+    section { padding: 64px 16px; }
+    .wrap { max-width: 1200px; margin: 0 auto; }
+    .section-title { font-size: clamp(24px, 3.2vw, 36px); margin: 0 0 8px; }
+    .section-lead { color: var(--muted); margin:0 0 24px; }
+
+    /* Servicios */
+    .grid { display:grid; gap: 16px; }
+    .grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
+    .card { background: var(--card); border:1px solid rgba(2,12,27,.06); border-radius: var(--radius); box-shadow: var(--shadow); overflow:hidden; display:flex; flex-direction:column; }
+    .card img { width:100%; height:200px; object-fit:cover; display:block; }
+    .card .content { padding: 14px; }
+    .pill { display:inline-flex; align-items:center; gap:8px; background: rgba(33,162,255,.1); color: var(--primary-600); padding:6px 10px; border-radius:999px; font-size: .85rem; font-weight:700; }
+
+    /* Galería */
+    .gallery { display:grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+    .gallery img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 14px; cursor:pointer; border:1px solid rgba(2,12,27,.06); }
+
+    /* Lightbox */
+    .lightbox { position: fixed; inset:0; background: rgba(0,0,0,.8); display:none; align-items:center; justify-content:center; padding: 16px; }
+    .lightbox.open { display:flex; }
+    .lightbox img { max-width: 92vw; max-height: 88vh; border-radius: 16px; }
+
+    /* Testimonios */
+    .testi { display:grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 16px; overflow:auto; scroll-snap-type: x mandatory; padding-bottom: 6px; }
+    .testi .card { scroll-snap-align: start; }
+
+    /* Seguridad */
+    .safety { display:grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .s-icon { width: 44px; height: 44px; border-radius: 12px; display:grid; place-items:center; background: #fff; border:1px solid rgba(2,12,27,.06); box-shadow: var(--shadow); font-weight:800; }
+
+    /* Precios / Cotización */
+    .price-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .price { text-align:center; padding: 14px; }
+    .price h3 { margin: 8px 0; }
+    .price .money { font-size: 28px; font-weight:900; color: var(--primary-600); }
+
+    /* Sobre nosotros */
+    .about { display:grid; grid-template-columns: 1.1fr 1fr; gap: 16px; align-items:center; }
+
+    /* Contacto */
+    form { display:grid; gap: 12px; }
+    label { font-weight: 700; font-size:.95rem; }
+    input, select, textarea { width:100%; padding:12px 12px; border-radius: 12px; border:1px solid rgba(2,12,27,.14); background:#fff; }
+    input:focus, select:focus, textarea:focus { outline: 3px solid var(--ring); border-color: var(--primary); }
+
+    /* Footer */
+    footer { background:#0b1220; color:#d2d9e8; }
+    footer a { color:#d2d9e8; text-decoration:none; }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .grid.cols-3, .grid.cols-4 { grid-template-columns: repeat(2, 1fr); }
+      .gallery { grid-template-columns: repeat(3, 1fr); }
+      .hero-wrap { grid-template-columns: 1fr; }
+      .about { grid-template-columns: 1fr; }
+      .price-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 720px) {
+      .gallery { grid-template-columns: repeat(2, 1fr); }
+      .safety { grid-template-columns: 1fr; }
+      .price-grid { grid-template-columns: 1fr; }
+      .menu { display:none; position:absolute; top:60px; left:0; right:0; background:#fff; padding:12px; border-bottom:1px solid rgba(2,12,27,.06); }
+      .menu.open { display:flex; flex-direction:column; }
+      .hamb { display:block; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#inicio" class="skip-link">Saltar al contenido</a>
+
+  <header>
+    <nav class="nav" aria-label="Principal">
+      <a class="brand" href="#inicio">
+        <span class="brand-logo" aria-hidden="true">PI</span>
+        <b>Peques Inflables y Juegos</b>
+      </a>
+
+      <button class="hamb" aria-label="Abrir menú" id="btnMenu">☰</button>
+
+      <div class="menu" id="menu">
+        <a href="#servicios">Servicios</a>
+        <a href="#galeria">Galería</a>
+        <a href="#seguridad">Seguridad</a>
+        <a href="#precios">Precios</a>
+        <a href="#testimonios">Testimonios</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#contacto">Contacto</a>
+        <a class="cta" href="#cotizar">Cotizar</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="inicio" class="hero">
+    <div class="hero-wrap">
+      <div>
+        <div class="badge"><i></i> Diversión segura y personalizada</div>
+        <h1 class="headline">Alquiler de inflables y juegos para <span style="background:linear-gradient(90deg,var(--primary),var(--secondary)); -webkit-background-clip:text; background-clip:text; color:transparent;">cumpleaños, jardines y eventos</span>.</h1>
+        <p class="subhead">En [Ciudad, Provincia] — Inflables, plazas blandas, camas elásticas, piscina de pelotas, personalización con nombres y más. Limpieza y normas de seguridad certificadas.</p>
+
+        <div class="hero-cta">
+          <a class="btn primary" id="ctaWhatsApp" href="#" target="_blank" rel="noopener">Reservar ahora</a>
+          <a class="btn outline" href="#galeria">Ver galería</a>
+        </div>
+
+        <div class="stats" aria-label="Indicadores de confianza">
+          <div class="stat"><b>+500</b><br><small>eventos realizados</small></div>
+          <div class="stat"><b>5★</b><br><small>opiniones verificadas</small></div>
+          <div class="stat"><b>100%</b><br><small>equipos sanitizados</small></div>
+        </div>
+      </div>
+
+      <div class="hero-ill" aria-hidden="true">
+        <div>
+          <strong>Espacio para tu imagen/reel</strong>
+          <br/>
+          <small>Reemplazá por una foto horizontal 1200×900 de un evento con inflables.
+          <br/>Sugerencia: usa imágenes comprimidas y con <em>alt</em> descriptivo.</small>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <section id="servicios">
+    <div class="wrap">
+      <h2 class="section-title">Servicios</h2>
+      <p class="section-lead">Elegí la opción ideal para tu evento. Todos los equipos se entregan limpios, desinfectados y con instrucciones de uso.</p>
+
+      <div class="grid cols-3">
+        <!-- Servicio: Inflables -->
+        <article class="card">
+          <img src="assets/servicios/inflable-1.jpg" alt="Inflable multicolor para niños en un patio" loading="lazy" />
+          <div class="content">
+            <div class="pill">Inflables</div>
+            <h3>Inflables temáticos</h3>
+            <p>Modelos para distintas edades y espacios. Opcional: personalización con el nombre del cumpleañero.</p>
+            <a class="btn" href="#cotizar">Solicitar cotización</a>
+          </div>
+        </article>
+        <!-- Servicio: Plazas blandas -->
+        <article class="card">
+          <img src="assets/servicios/plaza-blanda.jpg" alt="Plaza blanda con colchonetas y bloques de espuma" loading="lazy" />
+          <div class="content">
+            <div class="pill" style="background: rgba(255,62,165,.1); color: #b51670;">Plazas blandas</div>
+            <h3>Plaza blanda</h3>
+            <p>Sector seguro para los más chiquitos. Incluye colchonetas y módulos de juego suaves.</p>
+            <a class="btn" href="#cotizar">Solicitar cotización</a>
+          </div>
+        </article>
+        <!-- Servicio: Camas elásticas -->
+        <article class="card">
+          <img src="assets/servicios/cama-elastica.jpg" alt="Cama elástica con red de protección" loading="lazy" />
+          <div class="content">
+            <div class="pill" style="background: rgba(255,213,62,.14); color: #9a7a00;">Camas elásticas</div>
+            <h3>Camas elásticas</h3>
+            <p>Diversión con red de seguridad. Montaje rápido y supervisión opcional.</p>
+            <a class="btn" href="#cotizar">Solicitar cotización</a>
+          </div>
+        </article>
+        <!-- Servicio: Piscina de pelotas -->
+        <article class="card">
+          <img src="assets/servicios/piscina-pelotas.jpg" alt="Piscina de pelotas coloridas" loading="lazy" />
+          <div class="content">
+            <div class="pill" style="background: rgba(34,227,184,.13); color: #0b8e75;">Piscina de pelotas</div>
+            <h3>Piscina de pelotas</h3>
+            <p>Ideal para espacios interiores. Incluye pelotas sanitizadas y contención segura.</p>
+            <a class="btn" href="#cotizar">Solicitar cotización</a>
+          </div>
+        </article>
+        <!-- Servicio: Personalización -->
+        <article class="card">
+          <img src="assets/servicios/personalizacion.jpg" alt="Nombre del cumpleañero aplicado en vinilo sobre el inflable" loading="lazy" />
+          <div class="content">
+            <div class="pill" style="background: rgba(147,51,234,.12); color:#6d28d9;">Personalización</div>
+            <h3>Personalización con nombre</h3>
+            <p>Opciones de vinilo y cartelería para que el cumple tenga identidad propia.</p>
+            <a class="btn" href="#cotizar">Solicitar cotización</a>
+          </div>
+        </article>
+        <!-- Servicio: Animación/Disfraces -->
+        <article class="card">
+          <img src="assets/servicios/animacion.jpg" alt="Animadores disfrazados conduciendo juegos infantiles" loading="lazy" />
+          <div class="content">
+            <div class="pill" style="background: rgba(2,12,27,.06); color:#0f172a;">Animación</div>
+            <h3>Animación y disfraces</h3>
+            <p>Coordinación de juegos, música y sorpresas. Packs por hora con uno o más animadores.</p>
+            <a class="btn" href="#cotizar">Solicitar cotización</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="galeria">
+    <div class="wrap">
+      <h2 class="section-title">Galería</h2>
+      <p class="section-lead">Un vistazo a nuestros montajes. Tocá para ampliar la imagen.</p>
+      <div class="gallery" aria-label="Galería de eventos">
+        <!-- Reemplazar por tus imágenes -->
+        <img src="assets/galeria/1.jpg" alt="Inflable temático multicolor en jardín" loading="lazy" />
+        <img src="assets/galeria/2.jpg" alt="Plaza blanda con niños jugando" loading="lazy" />
+        <img src="assets/galeria/3.jpg" alt="Cama elástica instalada en patio" loading="lazy" />
+        <img src="assets/galeria/4.jpg" alt="Piscina de pelotas interior" loading="lazy" />
+        <img src="assets/galeria/5.jpg" alt="Inflable con nombre personalizado" loading="lazy" />
+        <img src="assets/galeria/6.jpg" alt="Animadores con disfraces en evento" loading="lazy" />
+        <img src="assets/galeria/7.jpg" alt="Montaje completo de fiesta infantil" loading="lazy" />
+        <img src="assets/galeria/8.jpg" alt="Detalle de limpieza y sanitización" loading="lazy" />
+      </div>
+    </div>
+    <div class="lightbox" id="lightbox" aria-modal="true" role="dialog">
+      <img alt="Vista ampliada" />
+    </div>
+  </section>
+
+  <section id="seguridad">
+    <div class="wrap">
+      <h2 class="section-title">Seguridad y limpieza</h2>
+      <p class="section-lead">Cumplimos buenas prácticas y normativas aplicables. Antes y después de cada evento se inspecciona y sanitiza el equipo.</p>
+      <div class="safety">
+        <article class="card">
+          <div class="content">
+            <div class="s-icon" aria-hidden="true">✓</div>
+            <h3>Protocolos de uso</h3>
+            <p>Manuales simples para familias y coordinadores. Señalización de capacidad, calzado y edades.</p>
+          </div>
+        </article>
+        <article class="card">
+          <div class="content">
+            <div class="s-icon" aria-hidden="true">🧼</div>
+            <h3>Limpieza y sanitización</h3>
+            <p>Desinfección de superficies y pelotas. Fundas y colchonetas lavables.</p>
+          </div>
+        </article>
+        <article class="card">
+          <div class="content">
+            <div class="s-icon" aria-hidden="true">🛡️</div>
+            <h3>Inspección y mantenimiento</h3>
+            <p>Chequeo de costuras, anclajes, motores y redes. Repuestos y refuerzos preventivos.</p>
+          </div>
+        </article>
+      </div>
+      <p class="section-lead">Si tu evento lo requiere, podemos compartir certificados y documentación técnica (por ejemplo, normas IRAM aplicables y póliza de seguro).</p>
+    </div>
+  </section>
+
+  <section id="precios">
+    <div class="wrap">
+      <h2 class="section-title">Precios y packs</h2>
+      <p class="section-lead">Elegí un estimado y pedí tu cotización express. Los valores pueden variar según fecha, distancia, horario y combo.</p>
+      <div class="price-grid">
+        <article class="card price">
+          <h3>Básico</h3>
+          <p class="money">$</p>
+          <p>1 inflable estándar + entrega/ret. local</p>
+          <a class="btn" href="#cotizar">Cotizar pack</a>
+        </article>
+        <article class="card price">
+          <h3>Fiesta</h3>
+          <p class="money">$$</p>
+          <p>Inflable + plaza blanda o cama elástica</p>
+          <a class="btn" href="#cotizar">Cotizar pack</a>
+        </article>
+        <article class="card price">
+          <h3>Full</h3>
+          <p class="money">$$$</p>
+          <p>Combo completo + animación</p>
+          <a class="btn" href="#cotizar">Cotizar pack</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="testimonios">
+    <div class="wrap">
+      <h2 class="section-title">Testimonios</h2>
+      <p class="section-lead">Lo que dicen las familias y escuelas.</p>
+      <div class="testi">
+        <article class="card">
+          <div class="content">
+            <p>“Excelente servicio. Los chicos no pararon de jugar y todo impecable.”</p>
+            <small>María P. · Cumple 6 años</small>
+          </div>
+        </article>
+        <article class="card">
+          <div class="content">
+            <p>“Puntuales, limpios y atentos. Contratamos combo con plaza blanda, un 10.”</p>
+            <small>Jardín Arco Iris</small>
+          </div>
+        </article>
+        <article class="card">
+          <div class="content">
+            <p>“Nos encantó la personalización con el nombre del cumpleañero.”</p>
+            <small>Familia Gómez</small>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="nosotros">
+    <div class="wrap about">
+      <div>
+        <h2 class="section-title">Sobre nosotros</h2>
+        <p class="section-lead">Somos un emprendimiento familiar con más de 10 años acompañando a familias, escuelas y clubes en [Ciudad, Provincia].</p>
+        <p>Creemos en la diversión segura y en la atención personalizada. Te asesoramos para elegir el equipo ideal según el espacio, la edad de los chicos y tu presupuesto.</p>
+        <div class="hero-cta">
+          <a class="btn" href="https://www.instagram.com/pequesinflablesyjuegos" target="_blank" rel="noopener">Instagram</a>
+          <a class="btn" href="#contacto">Escribir mensaje</a>
+        </div>
+      </div>
+      <div class="hero-ill" aria-hidden="true">
+        <div>
+          <strong>Foto del equipo</strong>
+          <br/>
+          <small>Reemplazá por una imagen del equipo o del taller.</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto">
+    <div class="wrap">
+      <h2 class="section-title">Contacto</h2>
+      <p class="section-lead">Escribinos y te respondemos a la brevedad.</p>
+      <div class="grid cols-3" style="align-items:start;">
+        <div class="card" style="padding:14px;">
+          <h3>Datos</h3>
+          <p><b>Horario:</b> Lun a Vie 9–18 h · Sáb 9–13 h</p>
+          <p><b>Zona:</b> [Ciudad, Provincia]</p>
+          <p><b>WhatsApp:</b> <a id="waLink" href="#" target="_blank" rel="noopener">+54 9 [número]</a></p>
+          <p><b>Instagram:</b> <a href="https://www.instagram.com/pequesinflablesyjuegos" target="_blank" rel="noopener">@pequesinflablesyjuegos</a></p>
+        </div>
+        <div class="card" style="padding:14px;">
+          <h3>Formulario</h3>
+          <form id="formCotizar" aria-label="Formulario de contacto">
+            <label for="nombre">Nombre y apellido</label>
+            <input id="nombre" name="nombre" required />
+
+            <label for="telefono">Teléfono</label>
+            <input id="telefono" name="telefono" inputmode="tel" />
+
+            <label for="servicio">Servicio de interés</label>
+            <select id="servicio" name="servicio">
+              <option>Inflable</option>
+              <option>Plaza blanda</option>
+              <option>Cama elástica</option>
+              <option>Piscina de pelotas</option>
+              <option>Animación</option>
+              <option>Combo</option>
+            </select>
+
+            <label for="fecha">Fecha del evento</label>
+            <input id="fecha" name="fecha" type="date" />
+
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" rows="4" placeholder="Contame el lugar, cantidad de chicos y horario"></textarea>
+
+            <button class="cta" type="submit">Enviar</button>
+          </form>
+        </div>
+        <div class="card" style="padding:0; overflow:hidden;">
+          <!-- Opcional: reemplazar src con tu mapa embebido -->
+          <iframe title="Mapa" style="border:0; width:100%; height:100%; min-height:380px;" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d0!2d-64.183!3d-31.416!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s[Ciudad,%20Provincia]!5e0!3m2!1ses-419!2sar!4v0000000000"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cotizar">
+    <div class="wrap">
+      <h2 class="section-title">Cotización express</h2>
+      <p class="section-lead">Completá y te armamos el mensaje listo para WhatsApp.</p>
+      <form id="formExpress" class="card" style="padding:14px;">
+        <div class="grid cols-3">
+          <div>
+            <label for="exp-nombre">Nombre</label>
+            <input id="exp-nombre" required />
+          </div>
+          <div>
+            <label for="exp-ciudad">Ciudad</label>
+            <input id="exp-ciudad" placeholder="[Ciudad]" />
+          </div>
+          <div>
+            <label for="exp-fecha">Fecha</label>
+            <input id="exp-fecha" type="date" />
+          </div>
+          <div>
+            <label for="exp-serv">Servicio</label>
+            <select id="exp-serv">
+              <option>Inflable</option>
+              <option>Plaza blanda</option>
+              <option>Cama elástica</option>
+              <option>Piscina de pelotas</option>
+              <option>Animación</option>
+              <option>Combo</option>
+            </select>
+          </div>
+          <div>
+            <label for="exp-cant">Cantidad de chicos</label>
+            <input id="exp-cant" type="number" min="1" step="1" />
+          </div>
+          <div>
+            <label for="exp-horas">Horas</label>
+            <input id="exp-horas" type="number" min="1" step="1" />
+          </div>
+        </div>
+        <label for="exp-msg">Detalles</label>
+        <textarea id="exp-msg" rows="3" placeholder="Barrio, espacio disponible, edad promedio, horarios"></textarea>
+        <div class="hero-cta">
+          <button class="cta" type="submit">Crear mensaje de WhatsApp</button>
+          <a class="btn" id="exp-wa" href="#" target="_blank" rel="noopener" style="display:none;">Abrir WhatsApp</a>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap" style="padding:28px 16px; display:grid; gap:16px; grid-template-columns: 1.2fr 1fr 1fr;">
+      <div>
+        <b style="font-size:1.1rem;">Peques Inflables y Juegos</b>
+        <p style="color:#9fb0c6; max-width:44ch;">Alquiler de inflables y recreación infantil en [Ciudad, Provincia]. Calidad, seguridad y atención personalizada.</p>
+        <small style="color:#9fb0c6;">© <span id="year"></span> Peques Inflables y Juegos. Todos los derechos reservados.</small>
+      </div>
+      <div>
+        <b>Secciones</b>
+        <ul style="list-style:none; padding:0; margin:10px 0; line-height:1.8;">
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#galeria">Galería</a></li>
+          <li><a href="#precios">Precios</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <b>Contacto</b>
+        <ul style="list-style:none; padding:0; margin:10px 0; line-height:1.8;">
+          <li><a id="footerWA" href="#" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="mailto:tuemail@tudominio.com">tuemail@tudominio.com</a></li>
+          <li><a href="https://www.instagram.com/pequesinflablesyjuegos" target="_blank" rel="noopener">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp flotante -->
+  <a id="fabWA" href="#" target="_blank" rel="noopener" aria-label="WhatsApp" style="position:fixed; right:16px; bottom:16px; background:linear-gradient(135deg,var(--mint),var(--primary)); color:#003; font-weight:900; padding:14px 16px; border-radius:999px; box-shadow: var(--shadow); text-decoration:none;">WhatsApp</a>
+
+  <script>
+    // ====== CONFIGURACIÓN RÁPIDA ======
+    const CONFIG = {
+      ciudad: "[Ciudad, Provincia]",
+      whatsapp: "+549[NUMERO]", // Reemplazá con tu número. Ej: +5493511234567
+      dominio: "https://tudominio.com/",
+      marca: "Peques Inflables y Juegos"
+    };
+
+    // Enlaces de WhatsApp con mensaje prellenado
+    function waLink(texto) {
+      const base = `https://wa.me/${CONFIG.whatsapp.replace(/[^\d]/g, "")}`;
+      const msg = encodeURIComponent(texto);
+      return `${base}?text=${msg}`;
+    }
+
+    // CTA principal
+    const cta = document.getElementById('ctaWhatsApp');
+    const fab = document.getElementById('fabWA');
+    const linkWA = waLink(`Hola, quiero reservar en ${CONFIG.ciudad}. ¿Tienen disponibilidad?`);
+    cta.href = linkWA;
+    fab.href = linkWA;
+
+    // Enlaces secundarios
+    document.getElementById('waLink').href = linkWA;
+    document.getElementById('footerWA').href = linkWA;
+
+    // Año dinámico
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Menú móvil
+    const btnMenu = document.getElementById('btnMenu');
+    const menu = document.getElementById('menu');
+    btnMenu.addEventListener('click', () => menu.classList.toggle('open'));
+
+    // Lightbox de galería
+    const lb = document.getElementById('lightbox');
+    const lbImg = lb.querySelector('img');
+    document.querySelectorAll('#galeria .gallery img').forEach(img => {
+      img.addEventListener('click', () => {
+        lbImg.src = img.src;
+        lb.classList.add('open');
+      })
+    });
+    lb.addEventListener('click', () => lb.classList.remove('open'));
+
+    // Formulario de contacto -> compone mensaje a WhatsApp
+    document.getElementById('formCotizar').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const nombre = document.getElementById('nombre').value.trim();
+      const tel = document.getElementById('telefono').value.trim();
+      const servicio = document.getElementById('servicio').value;
+      const fecha = document.getElementById('fecha').value;
+      const msg = document.getElementById('mensaje').value.trim();
+      const texto = `Hola, soy ${nombre}. Me interesa ${servicio} para el ${fecha}. Tel: ${tel}. ${msg}`;
+      window.open(waLink(texto), '_blank');
+    });
+
+    // Cotización express -> genera link de WA visible
+    const formExpress = document.getElementById('formExpress');
+    const linkExpress = document.getElementById('exp-wa');
+    formExpress.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const nombre = document.getElementById('exp-nombre').value.trim();
+      const ciudad = document.getElementById('exp-ciudad').value.trim() || CONFIG.ciudad;
+      const fecha = document.getElementById('exp-fecha').value;
+      const serv = document.getElementById('exp-serv').value;
+      const cant = document.getElementById('exp-cant').value;
+      const horas = document.getElementById('exp-horas').value;
+      const det = document.getElementById('exp-msg').value.trim();
+      const texto = `Hola, soy ${nombre} de ${ciudad}. Quiero cotizar ${serv} para el ${fecha}. Cantidad aprox: ${cant}. Horas: ${horas}. Detalles: ${det}`;
+      linkExpress.href = waLink(texto);
+      linkExpress.style.display = 'inline-flex';
+      linkExpress.textContent = 'Abrir WhatsApp con el mensaje';
+      linkExpress.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+
+    // Intersección simple para animaciones de entrada
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.style.transform = 'translateY(0)';
+        entry.target.style.opacity = entry.isIntersecting ? 1 : 0;
+      });
+    }, { threshold: .12 });
+    document.querySelectorAll('.card, .section-title, .section-lead, .hero-ill, .stat').forEach(el => {
+      el.style.transform = 'translateY(8px)'; el.style.transition = 'all .5s ease'; el.style.opacity = .02; observer.observe(el);
+    });
+  </script>
+
+  <!-- JSON-LD: SEO Local -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Peques Inflables y Juegos",
+    "image": "https://tudominio.com/og-cover.jpg",
+    "url": "https://tudominio.com/",
+    "telephone": "+54 9 [número]",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "[Ciudad]",
+      "addressRegion": "[Provincia]",
+      "addressCountry": "AR"
+    },
+    "areaServed": "[Ciudad y alrededores]",
+    "priceRange": "$$",
+    "description": "Alquiler de inflables, plazas blandas, camas elásticas y animación. Diversión segura y limpieza certificada.",
+    "sameAs": [
+      "https://www.instagram.com/pequesinflablesyjuegos"
+    ]
+  }
+  </script>
+</body>
+</html>
