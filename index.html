@@ -192,34 +192,30 @@
     </nav>
   </header>
 
-  <main id="inicio" class="hero">
-    <div class="hero-wrap">
-      <div>
-        <div class="badge"><i></i> Diversión segura y personalizada</div>
-        <h1 class="headline">Alquiler de inflables y juegos para <span style="background:linear-gradient(90deg,var(--primary),var(--secondary)); -webkit-background-clip:text; background-clip:text; color:transparent;">cumpleaños, jardines, escuelas y eventos</span>.</h1>
-        <p class="subhead">En Franck, Santa Fe y zona. Inflables, plazas blandas, camas elásticas, peloteros acuaticos. Limpieza y seguridad certificada.</p>
+<main id="inicio" class="hero">
+  <div class="hero-wrap">
+    <div>
+      <div class="badge"><i></i> Diversión segura y personalizada</div>
+      <h1 class="headline">Alquiler de inflables y juegos para <span style="background:linear-gradient(90deg,var(--primary),var(--secondary)); -webkit-background-clip:text; background-clip:text; color:transparent;">cumpleaños, jardines, escuelas y eventos</span>.</h1>
+      <p class="subhead">En Franck, Santa Fe y zona. Inflables, plazas blandas, camas elásticas, peloteros acuaticos. Limpieza y seguridad certificada.</p>
 
-        <div class="hero-cta">
-          <a class="btn primary" id="ctaWhatsApp" href="#" target="_blank" rel="noopener">Reservar ahora</a>
-          <a class="btn outline" href="#galeria">Ver galería</a>
-        </div>
-
-        <div class="stats" aria-label="Indicadores de confianza">
-          <div class="stat"><b>+500</b><br><small>eventos realizados</small></div>
-          <div class="stat"><b>5★</b><br><small>opiniones verificadas</small></div>
-          <div class="stat"><b>100%</b><br><small>equipos sanitizados</small></div>
-        </div>
+      <div class="hero-cta">
+        <a class="btn primary" id="ctaWhatsApp" href="#" target="_blank" rel="noopener">Reservar ahora</a>
+        <a class="btn outline" href="#galeria">Ver galería</a>
       </div>
 
-    <div class="hero-ill" aria-hidden="true">
-  <img src="https://scontent.fsfn8-1.fna.fbcdn.net/v/t39.30808-6/512766045_10083811528332000_8459267817861168346_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeHvZImLujMxOk3iUihOFqBypbTM7tss6DqltMzu2yzoOk1SS3es6YlKofw_vETzAPsDECZRKKgXXqGk67go2zjQ&_nc_ohc=bthLDCh6DFMQ7kNvwEFARFd&_nc_oc=AdmZ92eoTkUKK5wRVQ9Zm2NkPUfk8IAPIgXYYzA6iHCZh9dO8izzkryKszlJGCy8MBk&_nc_zt=23&_nc_ht=scontent.fsfn8-1.fna&_nc_gid=Rv6WEqpvbJagm-QAovi62A&oh=00_AfUlR2-nju7fz5HgjG0gdrYP2zAc_BNLCmeJ-Lt3upTADg&oe=689EF011"
-       alt="Logo Peques Inflables y Juegos"
-       style="max-width:100%;height:auto;border-radius:16px;">
-</div>
-        </div>
+      <div class="stats" aria-label="Indicadores de confianza">
+        <div class="stat"><b>+500</b><br><small>eventos realizados</small></div>
+        <div class="stat"><b>5★</b><br><small>opiniones verificadas</small></div>
+        <div class="stat"><b>100%</b><br><small>equipos sanitizados</small></div>
       </div>
     </div>
-  </main>
+
+    <div class="hero-ill" aria-hidden="true">
+      <img src="TU_LINK_O_RUTA" alt="Logo Peques Inflables y Juegos" style="max-width:100%;height:auto;border-radius:16px;">
+    </div>
+  </div>
+</main>
 
   <section id="servicios">
     <div class="wrap">
@@ -481,7 +477,6 @@
               <option>Plaza blanda</option>
               <option>Cama elástica</option>
               <option>Fondos, mesas y decoraciones</option>
-              <option>Animación</option>
               <option>Combo</option>
             </select>
           </div>
@@ -538,7 +533,7 @@
     // ====== CONFIGURACIÓN RÁPIDA ======
     const CONFIG = {
       ciudad: "Franck, Santa Fe",
-      whatsapp: "+5493424387693", // Reemplazá con tu número. Ej: +5493511234567
+      whatsapp: "+543424387693", // Reemplazá con tu número. Ej: +5493511234567
       dominio: "https://peques-inflables.vercel.app",
       marca: "Peques Inflables y Juegos"
     };
@@ -580,18 +575,20 @@
     });
     lb.addEventListener('click', () => lb.classList.remove('open'));
 
-    // Formulario de contacto -> compone mensaje a WhatsApp
-    document.getElementById('formCotizar').addEventListener('submit', (e) => {
-      e.preventDefault();
-      const nombre = document.getElementById('nombre').value.trim();
-      const tel = document.getElementById('telefono').value.trim();
-      const servicio = document.getElementById('servicio').value;
-      const fecha = document.getElementById('fecha').value;
-      const msg = document.getElementById('mensaje').value.trim();
-      const texto = `Hola, soy ${nombre}. Me interesa ${servicio} para el ${fecha}. Tel: ${tel}. ${msg}`;
-      window.open(waLink(texto), '_blank');
-    });
-
+// Formulario de contacto -> compone mensaje a WhatsApp (solo si existe)
+const formCotizar = document.getElementById('formCotizar');
+if (formCotizar) {
+  formCotizar.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const nombre = document.getElementById('nombre').value.trim();
+    const tel = document.getElementById('telefono').value.trim();
+    const servicio = document.getElementById('servicio').value;
+    const fecha = document.getElementById('fecha').value;
+    const msg = document.getElementById('mensaje').value.trim();
+    const texto = `Hola, soy ${nombre}. Me interesa ${servicio} para el ${fecha}. Tel: ${tel}. ${msg}`;
+    window.open(waLink(texto), '_blank');
+  });
+}
     // Cotización express -> genera link de WA visible
     const formExpress = document.getElementById('formExpress');
     const linkExpress = document.getElementById('exp-wa');
